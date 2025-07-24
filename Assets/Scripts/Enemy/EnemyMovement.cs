@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Transform endpoint;
     [SerializeField] private string animatorPeram_isWalkingBool;
+    [SerializeField] private int damage;
     private NavMeshAgent agent;
     private Animator anim;
 
@@ -26,8 +27,15 @@ public class EnemyMovement : MonoBehaviour
         {
             if (!agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathComplete)
             {
-                anim.SetBool(animatorPeram_isWalkingBool, false);
+                ReachEnd(damage);
             }
         }
+    }
+
+    private void ReachEnd(int damage)
+    {
+        anim.SetBool(animatorPeram_isWalkingBool, false);
+        GameManager.Instance.playerHealth.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
