@@ -4,14 +4,12 @@ using System.Collections.Generic;
 
 
 [RequireComponent(typeof(SphereCollider))]
-public class Tower : MonoBehaviour
+public abstract class Tower : MonoBehaviour
 {
     public float fireCooldown = 1.0f;
 
-    private float currentFireCooldown = 0.0f;
-    private List<Enemy> enemiesInRange = new List<Enemy>();
-
-    [SerializeField] private GameObject projectilePrefab;
+    protected float currentFireCooldown = 0.0f;
+    protected List<Enemy> enemiesInRange = new List<Enemy>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,10 +28,10 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         currentFireCooldown -= Time.deltaTime;
-        Enemy closestEnemy = GetClosestEnemy();
+        Enemy closestEnemy = GetTargetEnemy();
         if (closestEnemy != null && currentFireCooldown <= 0.0f)
         {
             FireAt(closestEnemy);
@@ -41,34 +39,11 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void FireAt(Enemy target)
-    {
-        if (projectilePrefab != null)
-        {
-            GameObject projectileInstance = Instantiate(projectilePrefab, transform.position + new Vector3 (0, 1.4f, 0), Quaternion.identity);
-            projectileInstance.GetComponent<Projectile>().SetTarget(target.transform);
-        }
-    }
+    protected abstract void FireAt(Enemy target);
 
-    private Enemy GetClosestEnemy()
-    {
-        ClearDestroyedEnemies();
+    protected abstract Enemy GetTargetEnemy();
 
-        Enemy closestEnemy = null;
-        float closestDistance = float.MaxValue;
-        foreach (Enemy enemy in enemiesInRange)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < closestDistance)
-            {
-                closestDistance = distanceToEnemy;
-                closestEnemy = enemy;
-            }
-        }
-        return closestEnemy;
-    }
-
-    private void ClearDestroyedEnemies()
+    protected void ClearDestroyedEnemies()
     {
         for (int i = enemiesInRange.Count - 1; i >= 0; i--)
         {
