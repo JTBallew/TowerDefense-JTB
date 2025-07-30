@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform endpoint;
+    [SerializeField] private Transform endPoint;
     [SerializeField] private string animatorPeram_isWalkingBool;
     [SerializeField] private int damage;
     private NavMeshAgent agent;
@@ -17,8 +17,13 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        agent.SetDestination(endpoint.position);
         anim.SetBool(animatorPeram_isWalkingBool, true);
+    }
+
+    public void Initialized(Transform inputEndPoint)
+    {
+        endPoint = inputEndPoint;
+        agent.SetDestination(endPoint.position);
     }
 
     void Update()
