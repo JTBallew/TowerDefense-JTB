@@ -2885,6 +2885,8 @@ MonoBehaviour:
       m_Action: Place Tower
       m_Flags: 0
     m_Flags: 0
+  isPlacingTower: 0
+  placementHeightOffset: 0.2
 --- !u!1001 &658789547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5209,7 +5211,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1256750909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649336731}
+        m_TargetAssemblyTypeName: TowerPlaceManager, Assembly-CSharp
+        m_MethodName: StartPlacingTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3749209924183481115, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1256750909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6789,7 +6803,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1825689101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649336731}
+        m_TargetAssemblyTypeName: TowerPlaceManager, Assembly-CSharp
+        m_MethodName: StartPlacingTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8670728402379648788, guid: 0a66f03596dceb145a39cf62450dda63, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1825689101
 MonoBehaviour:
   m_ObjectHideFlags: 0
