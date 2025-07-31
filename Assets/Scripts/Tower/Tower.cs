@@ -31,10 +31,10 @@ public abstract class Tower : MonoBehaviour
     protected virtual void Update()
     {
         currentFireCooldown -= Time.deltaTime;
-        Enemy closestEnemy = GetTargetEnemy();
-        if (closestEnemy != null && currentFireCooldown <= 0.0f)
+        Enemy targetEnemy = GetTargetEnemy();
+        if (targetEnemy != null && currentFireCooldown <= 0.0f)
         {
-            FireAt(closestEnemy);
+            FireAt(targetEnemy);
             currentFireCooldown = fireCooldown;
         }
     }

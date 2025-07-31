@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireCooldown: 1
-  projectilePrefab: {fileID: 5353503974407673870, guid: da68f6624282b63448d5d875162879fe, type: 3}
+  arrowPrefab: {fileID: 5353503974407673870, guid: da68f6624282b63448d5d875162879fe, type: 3}

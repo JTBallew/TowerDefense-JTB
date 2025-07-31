@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     public event System.Action<int, int> OnHealthChanged;
 
-    [SerializeField] private int maxHealth = 20;
+    [SerializeField] private int maxHealth = 50;
     private int currentHealth;
 
     private void Awake()
