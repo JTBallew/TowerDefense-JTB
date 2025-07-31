@@ -1,18 +1,19 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+[RequireComponent(typeof(BoxCollider))]
+public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] private int damage;
-    [SerializeField] private float speed = 20f;
-    [SerializeField] private float lifetime = 3f;
-    private Transform target;
+    [SerializeField] protected int damage;
+    [SerializeField] protected float speed = 20f;
+    [SerializeField] protected float lifetime = 3f;
+    protected Transform target;
 
-    private void Start()
+    protected void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(target != null)
         {
@@ -26,21 +27,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    protected abstract void OnTriggerEnter(Collider other);
+
     public void SetTarget(Transform inputTarget)
     {
         target = inputTarget;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.transform == target)
-        {
-            Enemy enemy = other.GetComponent<Enemy>();
-            if(enemy != null)
-            {
-                Destroy(enemy.gameObject);
-            }
-        }
-        Destroy(gameObject);
     }
 }

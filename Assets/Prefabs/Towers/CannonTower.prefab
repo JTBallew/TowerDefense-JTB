@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireCooldown: 1
-  cannonballPrefab: {fileID: 5353503974407673870, guid: da68f6624282b63448d5d875162879fe, type: 3}
+  cannonballPrefab: {fileID: 5898752001381740692, guid: 52ceec35c358ea346ad91e1e5094f947, type: 3}
 --- !u!4 &4561036067412836769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb43f5148ba301748924988926bb9d8f, type: 3}
