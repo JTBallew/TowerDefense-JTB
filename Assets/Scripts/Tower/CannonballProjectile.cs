@@ -12,10 +12,10 @@ public class CannonballProjectile : Projectile
             {
                 destination = target.position;
             }
-            Vector3 direction = (destination - transform.position).normalized;
-            transform.position += direction * speed * Time.deltaTime;
-            transform.forward = direction;
         }
+        Vector3 direction = (destination - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
+        transform.forward = direction;
     }
 
     protected override void OnTriggerEnter(Collider other)

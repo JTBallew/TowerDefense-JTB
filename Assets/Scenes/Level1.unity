@@ -3139,7 +3139,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 776036459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649336731}
+        m_TargetAssemblyTypeName: TowerPlaceManager, Assembly-CSharp
+        m_MethodName: StartPlacingTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5964106688945416578, guid: 3c1526d612120c848bb5d5fa017f1b25, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &776036459
 MonoBehaviour:
   m_ObjectHideFlags: 0
