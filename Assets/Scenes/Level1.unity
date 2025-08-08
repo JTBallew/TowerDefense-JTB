@@ -3058,63 +3058,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5597848769742214527, guid: df7dcd250e0ca61478d154152c1d2297, type: 3}
   m_PrefabInstance: {fileID: 1643849179468086132}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &764981707
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3749209924183481115, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_Name
-      value: CannonTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4561036067412836769, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8f1cdbb6f02f104281468d0bfdf420e, type: 3}
 --- !u!1 &776036456
 GameObject:
   m_ObjectHideFlags: 0
@@ -7221,7 +7164,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2048414353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649336731}
+        m_TargetAssemblyTypeName: TowerPlaceManager, Assembly-CSharp
+        m_MethodName: StartPlacingTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 706307280099135209, guid: 978a9351abc21454184a29e402eebccf, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2048414353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8256,4 +8211,3 @@ SceneRoots:
   - {fileID: 649336728}
   - {fileID: 2089220492}
   - {fileID: 2061586711}
-  - {fileID: 764981707}
