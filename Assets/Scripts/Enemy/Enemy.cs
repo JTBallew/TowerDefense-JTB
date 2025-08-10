@@ -6,11 +6,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform endPoint;
     [SerializeField] private string animatorPeram_isWalkingBool;
     [SerializeField] private int damage;
+    [SerializeField] private int maxHealth;
+    private int currentHealth;
     private NavMeshAgent agent;
     private Animator anim;
 
     private void Awake()
     {
+        currentHealth = maxHealth;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
     }
@@ -42,5 +45,14 @@ public class Enemy : MonoBehaviour
         anim.SetBool(animatorPeram_isWalkingBool, false);
         GameManager.Instance.playerHealth.TakeDamage(damage);
         Destroy(gameObject);
+    }
+
+    public void TakeDamage(int damageTaken)
+    {
+        currentHealth -= damageTaken;
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
