@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireCooldown: 0.3
+  towerCost: 750
   bulletPrefab: {fileID: 5794191796808335920, guid: a49441c302c060b418243b16abc804f5, type: 3}
 --- !u!4 &6453398522232255288 stripped
 Transform:

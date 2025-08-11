@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public abstract class Tower : MonoBehaviour
 {
     public float fireCooldown = 1.0f;
+    public int towerCost;
 
     protected float currentFireCooldown = 0.0f;
     protected List<Enemy> enemiesInRange = new List<Enemy>();

@@ -127,6 +127,7 @@ MonoBehaviour:
   animatorPeram_isWalkingBool: isWalking
   damage: 10
   maxHealth: 70
+  moneyDropped: 50
 --- !u!95 &3354868390957314038
 Animator:
   serializedVersion: 7

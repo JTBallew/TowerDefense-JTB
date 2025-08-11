@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private string animatorPeram_isWalkingBool;
     [SerializeField] private int damage;
     [SerializeField] private int maxHealth;
+    [SerializeField] private int moneyDropped;
     private int currentHealth;
     private NavMeshAgent agent;
     private Animator anim;
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            MoneyManager.Instance.GainMoney(moneyDropped);
         }
     }
 }

@@ -54,6 +54,11 @@ public class TowerPlaceManager : MonoBehaviour
 
     public void StartPlacingTower (GameObject towerPrefab)
     {
+        if (MoneyManager.Instance.currentMoney < towerPrefab.GetComponent<Tower>().towerCost)
+        {
+            Debug.Log("Not enough Money");
+            return;
+        }
         if (currentTowerPrefabToSpawn != towerPrefab)
         {
             isPlacingTower = true;
@@ -73,6 +78,7 @@ public class TowerPlaceManager : MonoBehaviour
             isPlacingTower = false;
             Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
             Destroy(towerPreview);
+            MoneyManager.Instance.SpendMoney(currentTowerPrefabToSpawn.GetComponent<Tower>().towerCost);
             currentTowerPrefabToSpawn = null;
         }
     }
