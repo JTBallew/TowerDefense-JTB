@@ -3,7 +3,6 @@ using UnityEngine;
 public class TurretTower : Tower
 {
     [SerializeField] private GameObject bulletPrefab;
-    private Vector3 endPoint = new Vector3(10, 0, 10);
 
     protected override void Update()
     {
@@ -24,13 +23,13 @@ public class TurretTower : Tower
         ClearDestroyedEnemies();
 
         Enemy firstEnemy = null;
-        float ClosestToEnd = float.MaxValue;
+        float longestAlive = float.MinValue;
         foreach (Enemy enemy in enemiesInRange)
         {
-            float distanceToEnd = Vector3.Distance(endPoint, enemy.transform.position);
-            if (distanceToEnd < ClosestToEnd)
+            float enemyLifespan = enemy.timeAlive;
+            if (enemyLifespan > longestAlive)
             {
-                ClosestToEnd = distanceToEnd;
+                longestAlive = enemyLifespan;
                 firstEnemy = enemy;
             }
         }

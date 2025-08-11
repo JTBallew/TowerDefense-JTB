@@ -3,7 +3,6 @@ using UnityEngine;
 public class CannonTower : Tower
 {
     [SerializeField] private GameObject cannonballPrefab;
-    private Vector3 endPoint = new Vector3 (10, 0, 10);
 
     protected override void Update()
     {
@@ -24,13 +23,13 @@ public class CannonTower : Tower
         ClearDestroyedEnemies();
 
         Enemy lastEnemy = null;
-        float furthestFromEnd = float.MinValue;
+        float shortestAlive = float.MaxValue;
         foreach (Enemy enemy in enemiesInRange)
         {
-            float distanceToEnd = Vector3.Distance(endPoint, enemy.transform.position);
-            if (distanceToEnd > furthestFromEnd)
+            float enemyLifespan = enemy.timeAlive;
+            if (enemyLifespan < shortestAlive)
             {
-                furthestFromEnd = distanceToEnd;
+                shortestAlive = enemyLifespan;
                 lastEnemy = enemy;
             }
         }

@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public float timeAlive;
+
     [SerializeField] private Transform endPoint;
     [SerializeField] private string animatorPeram_isWalkingBool;
     [SerializeField] private int damage;
@@ -32,6 +34,8 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        timeAlive += Time.deltaTime;
+
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             if (!agent.hasPath || agent.pathStatus == NavMeshPathStatus.PathComplete)

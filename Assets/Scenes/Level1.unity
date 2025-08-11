@@ -3035,7 +3035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMoney: 0
   moneyText: {fileID: 1219089403}
-  startingMoney: 300
+  startingMoney: 10000
 --- !u!1001 &658789547
 PrefabInstance:
   m_ObjectHideFlags: 0
