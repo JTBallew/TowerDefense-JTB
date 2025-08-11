@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class TowerPlaceManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class TowerPlaceManager : MonoBehaviour
     private GameObject currentTowerPrefabToSpawn;
     private GameObject towerPreview;
     private Vector3 towerPlacementPosition;
+    private List<Vector3> placedTowers = new List<Vector3>();
 
     [SerializeField] private bool isPlacingTower = false;
     private bool isTileSelected = false;
@@ -74,9 +77,13 @@ public class TowerPlaceManager : MonoBehaviour
 
     private void OnPlaceTower(InputAction.CallbackContext context)
     {
-        if(isPlacingTower && isTileSelected)
+        if (isPlacingTower && isTileSelected && !placedTowers.Contains(towerPlacementPosition))
         {
             isPlacingTower = false;
+            if (towerPlacementPosition != null && !placedTowers.Contains(towerPlacementPosition))
+            {
+                placedTowers.Add(towerPlacementPosition);
+            }
             Instantiate(currentTowerPrefabToSpawn, towerPlacementPosition, Quaternion.identity);
             Destroy(towerPreview);
             MoneyManager.Instance.SpendMoney(currentTowerPrefabToSpawn.GetComponent<Tower>().towerCost);
