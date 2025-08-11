@@ -3019,6 +3019,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   placementHeightOffset: 0.2
+  prefabPreview: {fileID: 4860592181838270535, guid: 6ad0c355c5940224b9a2b1ff7e60e9a0, type: 3}
   isPlacingTower: 0
 --- !u!114 &649336732
 MonoBehaviour:

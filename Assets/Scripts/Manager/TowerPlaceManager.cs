@@ -8,6 +8,7 @@ public class TowerPlaceManager : MonoBehaviour
     public InputAction PlaceTowerAction;
 
     [SerializeField] private float placementHeightOffset = 0.2f;
+    [SerializeField] private GameObject prefabPreview;
     private GameObject currentTowerPrefabToSpawn;
     private GameObject towerPreview;
     private Vector3 towerPlacementPosition;
@@ -67,7 +68,7 @@ public class TowerPlaceManager : MonoBehaviour
             {
                 Destroy(towerPreview);
             }
-            towerPreview = Instantiate(currentTowerPrefabToSpawn);
+            towerPreview = Instantiate(prefabPreview);
         }
     }
 
