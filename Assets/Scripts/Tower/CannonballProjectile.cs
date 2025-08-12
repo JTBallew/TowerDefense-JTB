@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CannonballProjectile : Projectile
 {
+    [SerializeField] private GameObject explosionHitbox;
     private Vector3 destination = new Vector3(0, 0, 0);
 
     protected override void Update()
@@ -20,11 +21,8 @@ public class CannonballProjectile : Projectile
 
     protected override void OnTriggerEnter(Collider other)
     {
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
-        }
+        GameObject explosion = Instantiate(explosionHitbox, new Vector3(transform.position.x, explosionHitbox.transform.position.y, transform.position.z), explosionHitbox.transform.rotation);
+        explosion.GetComponent<Explosion>().explosionDamage = damage;
         Destroy(gameObject);
     }
 }
