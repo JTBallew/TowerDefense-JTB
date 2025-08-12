@@ -3522,6 +3522,7 @@ MonoBehaviour:
   playerHealth: {fileID: 649336729}
   towersBuilt: 0
   enemiesDefeated: 0
+  enemiesFailed: 0
   gameOver: 0
 --- !u!4 &649336728
 Transform:
@@ -3756,6 +3757,10 @@ MonoBehaviour:
       TimeBeforeSpawn: 1
       SpawnPoint: {fileID: 158614997}
       EndPoint: {fileID: 1446158776}
+  gameWinScreen: {fileID: 565507989}
+  gameWinText: {fileID: 36487018}
+  towersText: {fileID: 1249560157}
+  enemiesText: {fileID: 449664653}
 --- !u!114 &649336731
 MonoBehaviour:
   m_ObjectHideFlags: 0

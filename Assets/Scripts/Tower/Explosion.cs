@@ -28,7 +28,10 @@ public class Explosion : MonoBehaviour
     {
         foreach (Enemy enemy in enemiesInExplosion)
         {
-            enemy.TakeDamage(explosionDamage);
+            if (enemy != null)
+            {
+                enemy.TakeDamage(explosionDamage);
+            }
         }
         Destroy(gameObject);
     }

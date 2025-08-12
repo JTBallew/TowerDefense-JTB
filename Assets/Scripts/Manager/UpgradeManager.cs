@@ -43,7 +43,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void CheckTower(InputAction.CallbackContext context)
     {
-        if (!placeManager.isPlacingTower)
+        if (!placeManager.isPlacingTower && !GameManager.Instance.gameOver)
         {
             Ray ray = MainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, TowerLayer))

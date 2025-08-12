@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool(animatorPeram_isWalkingBool, false);
         GameManager.Instance.playerHealth.TakeDamage(damage);
+        GameManager.Instance.enemiesFailed++;
         Destroy(gameObject);
     }
 

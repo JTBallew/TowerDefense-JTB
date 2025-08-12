@@ -115,10 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad7da69d5a2c8c42bdbe1714cba34e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeAlive: 0
   endPoint: {fileID: 0}
   animatorPeram_isWalkingBool: isWalking
   damage: 20
-  maxHealth: 100
+  maxHealth: 200
   moneyDropped: 100
 --- !u!95 &3592714409809566909
 Animator:
