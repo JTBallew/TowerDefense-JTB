@@ -14,7 +14,7 @@ public class CannonTower : Tower
         if (cannonballPrefab != null)
         {
             GameObject projectileInstance = Instantiate(cannonballPrefab, transform.position + new Vector3(0, 1.4f, 0), Quaternion.identity);
-            projectileInstance.GetComponent<Projectile>().SetTarget(target.transform);
+            projectileInstance.GetComponent<Projectile>().SetTarget(target.transform, damage);
         }
     }
 

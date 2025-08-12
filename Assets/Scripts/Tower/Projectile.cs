@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] protected int damage;
     [SerializeField] protected float speed;
     [SerializeField] protected float lifetime;
+    protected int damage;
     protected Transform target;
 
     protected void Start()
@@ -29,8 +29,9 @@ public abstract class Projectile : MonoBehaviour
 
     protected abstract void OnTriggerEnter(Collider other);
 
-    public void SetTarget(Transform inputTarget)
+    public void SetTarget(Transform inputTarget, int towerDamage)
     {
         target = inputTarget;
+        damage = towerDamage;
     }
 }

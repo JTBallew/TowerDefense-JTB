@@ -8,6 +8,7 @@ public class TowerPlaceManager : MonoBehaviour
     public Camera MainCamera;
     public LayerMask TileLayer;
     public InputAction PlaceTowerAction;
+    public bool isPlacingTower = false;
 
     [SerializeField] private float placementHeightOffset = 0.2f;
     [SerializeField] private GameObject prefabPreview;
@@ -15,8 +16,6 @@ public class TowerPlaceManager : MonoBehaviour
     private GameObject towerPreview;
     private Vector3 towerPlacementPosition;
     private List<Vector3> placedTowers = new List<Vector3>();
-
-    [SerializeField] private bool isPlacingTower = false;
     private bool isTileSelected = false;
 
     void Start()

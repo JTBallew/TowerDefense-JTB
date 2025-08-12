@@ -2,12 +2,13 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
-
 [RequireComponent(typeof(SphereCollider))]
 public abstract class Tower : MonoBehaviour
 {
     public float fireCooldown = 1.0f;
     public int towerCost;
+    public int damage;
+    public bool isUpgraded = false;
 
     protected float currentFireCooldown = 0.0f;
     protected List<Enemy> enemiesInRange = new List<Enemy>();

@@ -53,6 +53,10 @@ PrefabInstance:
       value: CatapultTower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 41febfc43939ef447a9d18839042c210, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 41febfc43939ef447a9d18839042c210, type: 3}
       propertyPath: m_TagString
       value: Tower
       objectReference: {fileID: 0}
@@ -115,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireCooldown: 2
   towerCost: 500
+  damage: 50
   boulderPrefab: {fileID: 8257895116335669937, guid: bfaac07fd5b1bb04990f43bfb792a115, type: 3}
 --- !u!1001 &4696485138830610213
 PrefabInstance:
