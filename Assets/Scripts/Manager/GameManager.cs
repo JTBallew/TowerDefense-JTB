@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int enemiesDefeated;
     public int enemiesFailed;
     public bool gameOver;
+    public GameObject loadingScreen;
 
     private void Awake()
     {
@@ -30,11 +32,17 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        loadingScreen.SetActive(false);
     }
 
-    void Update()
+    public void RestartLevel()
     {
-        
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void BackToMenu()
+    {
+        loadingScreen.SetActive(true);
+        SceneManager.LoadScene("StartMenu");
     }
 }
