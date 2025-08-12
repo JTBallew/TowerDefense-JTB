@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public Health playerHealth;
+    public int towersBuilt;
+    public int enemiesDefeated;
+    public bool gameOver;
 
     private void Awake()
     {

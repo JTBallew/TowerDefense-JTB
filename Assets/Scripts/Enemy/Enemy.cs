@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             MoneyManager.Instance.GainMoney(moneyDropped);
+            GameManager.Instance.enemiesDefeated++;
         }
     }
 }

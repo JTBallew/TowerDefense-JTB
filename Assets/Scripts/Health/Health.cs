@@ -1,10 +1,15 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
     public event System.Action<int, int> OnHealthChanged;
 
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private TextMeshProUGUI towersText;
+    [SerializeField] private TextMeshProUGUI enemiesText;
     [SerializeField] private int maxHealth = 50;
     private int currentHealth;
 
@@ -24,7 +29,16 @@ public class Health : MonoBehaviour
         {
             currentHealth = Mathf.Max(currentHealth - damageAmount, 0);
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
+            Debug.Log($"Current Health: {currentHealth}");
         }
-        Debug.Log($"Current Health: {currentHealth}");
+        if (currentHealth <= 0)
+        {
+            Time.timeScale = 0;
+            GameManager.Instance.gameOver = true;
+            gameOverScreen.SetActive(true);
+            gameOverText.text = "Game Over!";
+            towersText.text = $"Towers Built: {GameManager.Instance.towersBuilt}";
+            enemiesText.text = $"Enemies Defeated: {GameManager.Instance.enemiesDefeated}";
+        }
     }
 }

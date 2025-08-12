@@ -12,6 +12,7 @@ public class TowerPlaceManager : MonoBehaviour
 
     [SerializeField] private float placementHeightOffset = 0.2f;
     [SerializeField] private GameObject prefabPreview;
+    [SerializeField] private GameObject cancelButton;
     private GameObject currentTowerPrefabToSpawn;
     private GameObject towerPreview;
     private Vector3 towerPlacementPosition;
@@ -62,10 +63,11 @@ public class TowerPlaceManager : MonoBehaviour
             Debug.Log("Not enough Money");
             return;
         }
-        if (currentTowerPrefabToSpawn != towerPrefab)
+        if (currentTowerPrefabToSpawn != towerPrefab && !GameManager.Instance.gameOver)
         {
             isPlacingTower = true;
             currentTowerPrefabToSpawn = towerPrefab;
+            cancelButton.SetActive(true);
             if (towerPreview != null)
             {
                 Destroy(towerPreview);
@@ -87,6 +89,16 @@ public class TowerPlaceManager : MonoBehaviour
             Destroy(towerPreview);
             MoneyManager.Instance.SpendMoney(currentTowerPrefabToSpawn.GetComponent<Tower>().towerCost);
             currentTowerPrefabToSpawn = null;
+            cancelButton.SetActive(false);
+            GameManager.Instance.towersBuilt++;
         }
+    }
+
+    public void CancelBuilding()
+    {
+        isPlacingTower = false;
+        currentTowerPrefabToSpawn = null;
+        Destroy(towerPreview);
+        cancelButton.SetActive(false);
     }
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-    public static MoneyManager Instance;
+    public static MoneyManager Instance { get; private set; }
+
     public int currentMoney;
 
     [SerializeField] private TextMeshProUGUI moneyText;
@@ -11,7 +12,16 @@ public class MoneyManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         currentMoney = startingMoney;
     }
 
