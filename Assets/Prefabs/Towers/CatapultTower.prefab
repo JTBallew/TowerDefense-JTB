@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c561c934662f84bb53cb3689d64a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireCooldown: 3
+  fireCooldown: 2
   towerCost: 500
   damage: 50
   isUpgraded: 0

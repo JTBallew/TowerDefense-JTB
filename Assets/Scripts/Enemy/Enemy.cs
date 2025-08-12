@@ -55,12 +55,15 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        currentHealth -= damageTaken;
-        if (currentHealth <= 0)
+        if (currentHealth > 0)
         {
-            Destroy(gameObject);
-            MoneyManager.Instance.GainMoney(moneyDropped);
-            GameManager.Instance.enemiesDefeated++;
+            currentHealth -= damageTaken;
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+                MoneyManager.Instance.GainMoney(moneyDropped);
+                GameManager.Instance.enemiesDefeated++;
+            }
         }
     }
 }

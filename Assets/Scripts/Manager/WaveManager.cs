@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour
 {
     public List<WaveData> LevelWaveData;
 
+    [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject gameWinScreen;
     [SerializeField] private TextMeshProUGUI gameWinText;
     [SerializeField] private TextMeshProUGUI towersText;
@@ -36,14 +37,13 @@ public class WaveManager : MonoBehaviour
     {
         wavesPassed = 0;
         enemiesSpawned = 0;
-        StartLevel();
     }
 
     private void Update()
     {
         if ((GameManager.Instance.enemiesDefeated + GameManager.Instance.enemiesFailed) > enemiesSpawned)
         {
-            GameManager.Instance.enemiesDefeated = enemiesSpawned - GameManager.Instance.enemiesFailed;
+            GameManager.Instance.enemiesDefeated--;
         }
         if (wavesPassed == LevelWaveData.Count && (GameManager.Instance.enemiesDefeated + GameManager.Instance.enemiesFailed) == enemiesSpawned && !gameWon)
         {
@@ -58,6 +58,7 @@ public class WaveManager : MonoBehaviour
 
     public void StartLevel()
     {
+        startButton.SetActive(false);
         StartCoroutine(StartWave());
     }
 
